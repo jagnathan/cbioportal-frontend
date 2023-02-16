@@ -168,6 +168,6 @@ function matchPhrase(phrase: string, fullText: string) {
 /**
  * Full match using lowercase
  */
-function matchPhraseFull(phrase: string, fullText: string) {
-    return fullText.toLowerCase() === phrase.toLowerCase();
+function matchPhraseFull(phrase: string, toMatch: boolean | string | number) {
+    return _.toString(toMatch).toLowerCase() === phrase.toLowerCase();
 }
