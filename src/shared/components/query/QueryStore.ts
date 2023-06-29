@@ -657,7 +657,7 @@ export class QueryStore {
                 .filter(s => s.readPermission)
                 .map(s => s.studyId);
             console.log(studyIds);
-            return [];
+            return client.getTagsForMultipleStudiesUsingPOST({ studyIds });
         },
         default: [],
     });
