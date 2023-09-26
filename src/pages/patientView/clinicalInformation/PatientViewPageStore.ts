@@ -123,7 +123,7 @@ import {
 } from 'oncokb-ts-api-client';
 import { MutationTableDownloadDataFetcher } from 'shared/lib/MutationTableDownloadDataFetcher';
 import {
-    fetchTrialMatchesUsingPOST,
+    fetchTrialMatches,
     fetchTrialsById,
 } from '../../../shared/api/MatchMinerAPI';
 import {
@@ -2490,7 +2490,7 @@ export class PatientViewPageStore {
     readonly trialMatches = remoteData<ITrialMatch[]>(
         {
             invoke: () => {
-                return fetchTrialMatchesUsingPOST({ mrn: this.patientId });
+                return fetchTrialMatches({ mrn: this.patientId });
             },
         },
         []
@@ -2540,21 +2540,21 @@ export class PatientViewPageStore {
         []
     );
 
-    readonly detailedTrialMatches = remoteData<IDetailedTrialMatch[]>(
-        {
-            await: () => [this.trials, this.trialMatches],
-            invoke: async () => {
-                if (this.trials.result && this.trialMatches.result) {
-                    return groupTrialMatchesById(
-                        this.trials.result,
-                        this.trialMatches.result
-                    );
-                }
-                return [];
-            },
-        },
-        []
-    );
+    // readonly detailedTrialMatches = remoteData<IDetailedTrialMatch[]>(
+    //     {
+    //         await: () => [this.trials, this.trialMatches],
+    //         invoke: async () => {
+    //             if (this.trials.result && this.trialMatches.result) {
+    //                 return groupTrialMatchesById(
+    //                     this.trials.result,
+    //                     this.trialMatches.result
+    //                 );
+    //             }
+    //             return [];
+    //         },
+    //     },
+    //     []
+    // );
 
     readonly oncoKbDataForOncoprint = remoteData<IOncoKbData | Error>(
         {
