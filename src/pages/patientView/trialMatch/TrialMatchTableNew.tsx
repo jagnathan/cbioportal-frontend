@@ -423,12 +423,12 @@ export default class TrialMatchTableNew extends React.Component<
             render: (trialmatch: ITrialMatch) => (
                 <div>
                     <div>
-                        <a href="https://betaviewer.ctims.ca/" target="_blank">
+                        <a href="https://demo-viewer.ctims.ca/" target="_blank">
                             CTIMS Viewer
                         </a>
                     </div>
                     <div>
-                        <a href="https://betaeditor.ctims.ca/" target="_blank">
+                        <a href="https://demo-editor.ctims.ca/" target="_blank">
                             CTIMS Editor
                         </a>
                     </div>
